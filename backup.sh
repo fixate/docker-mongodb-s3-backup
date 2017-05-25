@@ -18,7 +18,7 @@ TMPDIR=`mktemp -d`
 TAR=$TIME.tar
 
 echo "Dumping database"
-/usr/bin/mongodump -h $DBHOST -p $DBPORT -d $DBNAME -o $TMPDIR
+/mongodump -h $DBHOST -p $DBPORT -d $DBNAME -o $TMPDIR
 
 # Create tar of backup directory
 echo "Compressing"
@@ -26,7 +26,7 @@ echo "Compressing"
 
 # Upload tar to s3
 echo "Uploading"
-aws s3 cp $TAR $S3DEST
+/usr/bin/aws s3 cp $TAR $S3DEST
 
 # Clean up
 /bin/rm -f $TAR
