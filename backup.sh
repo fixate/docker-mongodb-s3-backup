@@ -26,7 +26,7 @@ echo "Compressing"
 
 # Upload tar to s3
 echo "Uploading"
-/usr/bin/aws s3 cp $TAR $S3DEST
+/usr/bin/aws s3 cp $TAR $S3DEST/$TIME.tar
 
 # Clean up
 /bin/rm -f $TAR
